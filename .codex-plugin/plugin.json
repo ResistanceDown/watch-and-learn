@@ -1,0 +1,36 @@
+{
+  "name": "watch-and-learn",
+  "version": "0.2.0",
+  "description": "Inspect one video, evaluate its evidence, and build an authorized reusable agent capability.",
+  "author": {
+    "name": "Watch and Learn maintainers"
+  },
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "youtube",
+    "transcription",
+    "ocr",
+    "agent-skills"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Watch and Learn",
+    "shortDescription": "Learn reusable workflows from video evidence.",
+    "longDescription": "Read a video, assess what it supports, and build within the user-approved scope.",
+    "developerName": "Watch and Learn maintainers",
+    "category": "Productivity",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Explain the important steps in this video: <video URL>.",
+      "Assess this video and propose a reusable skill for <outcome>: <video URL>."
+    ],
+    "brandColor": "#E11D48",
+    "websiteURL": "https://github.com/ResistanceDown/watch-and-learn",
+    "privacyPolicyURL": "https://github.com/ResistanceDown/watch-and-learn#privacy"
+  }
+}

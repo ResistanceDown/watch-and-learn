@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="380" viewBox="0 0 1200 380" role="img" aria-labelledby="title desc">
+  <title id="title">Watch and Learn</title>
+  <desc id="desc">Turn video tutorials into reusable agent skills. Watch, evaluate, and learn from timestamped evidence.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#111827"/><stop offset="1" stop-color="#18111f"/></linearGradient>
+    <linearGradient id="accent" x2="1" y2="1"><stop stop-color="#fb7185"/><stop offset="1" stop-color="#e11d48"/></linearGradient>
+  </defs>
+  <rect width="1200" height="380" rx="20" fill="url(#bg)"/>
+  <path d="M820 0h380v380H820z" fill="#ffffff" opacity=".015"/>
+  <circle cx="1115" cy="60" r="155" fill="none" stroke="#fb7185" stroke-opacity=".10"/>
+  <circle cx="1115" cy="60" r="205" fill="none" stroke="#fb7185" stroke-opacity=".06"/>
+  <rect x="56" y="54" width="66" height="66" rx="17" fill="url(#accent)"/>
+  <path d="m81 72 25 15-25 15z" fill="#fff"/>
+  <text x="140" y="72" fill="#fda4af" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="700" letter-spacing="3">VIDEO → EVIDENCE → SKILL</text>
+  <text x="139" y="116" fill="#f8fafc" font-family="Arial,Helvetica,sans-serif" font-size="44" font-weight="700" letter-spacing="-1">Watch and Learn</text>
+  <text x="57" y="172" fill="#cbd5e1" font-family="Arial,Helvetica,sans-serif" font-size="22">Turn a tutorial into a workflow your agent can reuse.</text>
+  <g font-family="Arial,Helvetica,sans-serif">
+    <rect x="56" y="222" width="332" height="106" rx="13" fill="#1c2433" stroke="#334155"/>
+    <rect x="434" y="222" width="332" height="106" rx="13" fill="#1c2433" stroke="#334155"/>
+    <rect x="812" y="222" width="332" height="106" rx="13" fill="#2c1b2a" stroke="#9f304f"/>
+    <text x="78" y="256" fill="#fb7185" font-size="12" font-weight="700" letter-spacing="2">01</text>
+    <text x="111" y="257" fill="#f8fafc" font-size="21" font-weight="700">Watch</text>
+    <text x="78" y="292" fill="#94a3b8" font-size="16">Capture speech, frames, and text</text>
+    <text x="456" y="256" fill="#fb7185" font-size="12" font-weight="700" letter-spacing="2">02</text>
+    <text x="489" y="257" fill="#f8fafc" font-size="21" font-weight="700">Evaluate</text>
+    <text x="456" y="292" fill="#94a3b8" font-size="16">Check what the evidence supports</text>
+    <text x="834" y="256" fill="#fb7185" font-size="12" font-weight="700" letter-spacing="2">03</text>
+    <text x="867" y="257" fill="#f8fafc" font-size="21" font-weight="700">Learn</text>
+    <text x="834" y="292" fill="#d4a3b7" font-size="16">Build and verify an approved skill</text>
+  </g>
+  <g stroke="#64748b" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M401 275h19m-6-6 6 6-6 6"/>
+    <path d="M779 275h19m-6-6 6 6-6 6"/>
+  </g>
+</svg>
