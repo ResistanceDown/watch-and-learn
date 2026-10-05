@@ -6,13 +6,23 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
 from unittest.mock import patch
 
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "skills/watch/scripts"))
 
-from screen_text import read_screen_text
+from screen_text import _ocr_frame, read_screen_text
+
+
+class OCRProcessTest(unittest.TestCase):
+    def test_parallel_ocr_limits_threads_and_preserves_language_environment(self):
+        result = SimpleNamespace(returncode=0, stdout="FRAME ONE\n", stderr="")
+        with patch.dict("screen_text.os.environ", {"OMP_THREAD_LIMIT": "8", "TESSDATA_PREFIX": "custom-data"}, clear=True), \
+             patch("screen_text.subprocess.run", return_value=result) as run:
+            self.assertEqual(_ocr_frame({"path": "frame.jpg", "timestamp_seconds": 0}), "FRAME ONE")
+        self.assertEqual(run.call_args.kwargs["env"], {"OMP_THREAD_LIMIT": "1", "TESSDATA_PREFIX": "custom-data"})
 
 
 @unittest.skipUnless(all(shutil.which(t) for t in ("ffmpeg", "ffprobe", "tesseract")),
@@ -28,10 +38,11 @@ class ScreenTextTest(unittest.TestCase):
 
     def test_changes_in_visible_text_are_timestamped(self):
         with tempfile.TemporaryDirectory() as output:
-            subprocess.run([sys.executable, str(ROOT / "skills/watch/scripts/watch.py"),
+            result = subprocess.run([sys.executable, str(ROOT / "skills/watch/scripts/watch.py"),
                             str(ROOT / "tests/screen-text.mp4"), "--screen-text",
                             "--detail", "transcript", "--out-dir", output],
-                           check=True, capture_output=True, text=True)
+                           capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
             items = json.loads((Path(output) / "screen-text.json").read_text())
         self.assertEqual([item["text"] for item in items], ["FRAME ONE", "FRAME TWO"])
         self.assertEqual([round(item["timestamp_seconds"]) for item in items], [0, 2])

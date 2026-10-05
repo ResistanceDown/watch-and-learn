@@ -1,6 +1,6 @@
 {
   "name": "watch-and-learn",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Inspect one video, evaluate its evidence, and build an authorized reusable agent capability.",
   "author": {
     "name": "Watch and Learn maintainers"

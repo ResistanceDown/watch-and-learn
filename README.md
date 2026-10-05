@@ -7,8 +7,8 @@
 <p align="center"><strong>Watch a tutorial. Understand the evidence. Build a skill you can reuse.</strong></p>
 
 <p align="center">
-  <a href="https://github.com/ResistanceDown/watch-and-learn/actions/workflows/test.yml"><img src="https://img.shields.io/github/actions/workflow/status/ResistanceDown/watch-and-learn/test.yml?branch=main&amp;style=flat-square&amp;label=tests" alt="Test workflow status"></a>
-  <a href="https://github.com/ResistanceDown/watch-and-learn/releases"><img src="https://img.shields.io/github/v/release/ResistanceDown/watch-and-learn?style=flat-square&amp;color=e11d48" alt="Latest release"></a>
+  <a href="https://github.com/ResistanceDown/watch-and-learn/actions/workflows/test.yml"><img src="https://github.com/ResistanceDown/watch-and-learn/actions/workflows/test.yml/badge.svg?branch=main&amp;event=push" alt="Test workflow status"></a>
+  <a href="https://github.com/ResistanceDown/watch-and-learn/releases"><img src="https://img.shields.io/github/v/release/ResistanceDown/watch-and-learn?style=flat-square&amp;color=e11d48&amp;label=release" alt="Latest release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-22c55e?style=flat-square" alt="License: MIT"></a>
   <a href="#requirements"><img src="https://img.shields.io/badge/python-3.10%2B-3776ab?style=flat-square&amp;logo=python&amp;logoColor=white" alt="Python 3.10 or newer"></a>
   <a href="https://agentskills.io"><img src="https://img.shields.io/badge/Agent_Skills-compatible-8b5cf6?style=flat-square" alt="Agent Skills compatible"></a>

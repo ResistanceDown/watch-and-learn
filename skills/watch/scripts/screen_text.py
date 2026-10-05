@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import os
 import shutil
 import subprocess
 from concurrent.futures import ThreadPoolExecutor
@@ -13,7 +14,8 @@ from frames import extract, format_time
 def _ocr_frame(frame: dict, language: str = "eng") -> str:
     try:
         result = subprocess.run(["tesseract", frame["path"], "stdout", "-l", language, "--psm", "11"],
-                                capture_output=True, text=True, timeout=30)
+                                capture_output=True, text=True, timeout=30,
+                                env={**os.environ, "OMP_THREAD_LIMIT": "1"})
     except subprocess.TimeoutExpired:
         raise SystemExit(f"OCR timed out at {format_time(frame['timestamp_seconds'])}")
     if result.returncode:
@@ -43,7 +45,7 @@ def read_screen_text(video: str, work: Path, start: float | None, end: float | N
         frames = extract(video, work / "ocr_frames" / f"{chunk:04d}", fps=fps,
                          resolution=1600, max_frames=max_frames,
                          start_seconds=window_start, end_seconds=chunk_end)
-        # ponytail: four processes cap CPU pressure; tune only if real captures warrant it.
+        # ponytail: four single-threaded processes cap CPU pressure; tune only from real captures.
         with ThreadPoolExecutor(max_workers=4) as pool:
             for offset in range(0, len(frames), 16):
                 batch = frames[offset:offset + 16]
